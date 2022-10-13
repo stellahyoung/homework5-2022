@@ -1,0 +1,161 @@
+/* width of 25px that grows up to 475px, and grow to 475px.  It should also start with an 1 */
+@keyframes mymove {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+}
+
+/* animation takes up to 5 seconds and only happens when page is loaded */
+#logo {
+    animation: mymove 5s;
+}
+
+/* body element to use the Poppins font with serif as a backup, 
+use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1 */
+body {
+    font-family: "Poppins", "serif";
+    background-image: url("../images/concrete_seamless.png");
+    background-color:#f1f1f1;   
+}
+
+/* styling of header tag */
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* styling of nav_links class */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* links have the same color even after they have been visited */
+.nav_links li a:visited {
+    color: blue;
+}
+  
+/* styling of header elements that are direct children of a card class */
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+  
+/* styling of card class */
+.card {
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+    
+/* styling or pricing class */
+.pricing {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+    
+/* styling of images gallery class */
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+    
+/* styling of gallery class */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+    
+/* screen-size greater than 900px */
+@media screen and (min-width: 900px) {
+    
+    /* styling of header tag and nav_links class */
+    header, .nav_links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    /* styling of card class */
+    .card {
+        flex-basis: 275px;
+    }
+    
+    /* styling of pricing class */
+    .pricing {
+        flex-basis: 275px;
+    }
+    
+    /* styling of first header */
+    a + header {
+        position: sticky;
+        top: 0px;
+    }
+}
+    
+/* user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+    
+/* page is printed in portrait mode */
+@media print {
+    
+    /* font of body to Arial with a backup of Helvetica */
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }        
+
+    /* styling of nav header */
+    nav {
+        width: 100%;
+    }
+        
+    /* styling of nav_link class */
+    .nav_links {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+    
+    /* styling of pricing class */
+    .pricing {
+        display: flex;
+        border-bottom-left-radius: none;
+        border-bottom-right-radius: none;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+        
+    /* styling of card class */
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        border-bottom-left-radius: none;
+        border-bottom-right-radius: none;
+    }
+
+    /* gallery is not visible */
+    #gallery, .gallery {
+        display: none;
+    }
+
+    /* thumbs up */
+    .card li:nth-child(2)::after {
+        content:"\01F44D";
+    }
+}
+
+
